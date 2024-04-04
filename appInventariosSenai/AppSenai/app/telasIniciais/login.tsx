@@ -1,64 +1,59 @@
-import { StyleSheet, View, Text, TouchableOpacity, } from "react-native";
-import Header from "@comp/header";
-import Input from "@comp/input";
+import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import Header from '@components/Header';
+import Input from '@components/Input';
+import Botao from '@components/Botao';
+import Subtitulo from '@components/Subtitulo'
+import LinkBtn from '@components/LinkBtn';
 import { Link } from 'expo-router';
-import LinkBtn from "@comp/button";
 
-export default function Login(){
+
+
+function Login(){
     return(
-        <>
         <View>
-        <Header cor="#000" texto="Login"/>
+            <Header titulo="Login" cor="#000"/>
+            <View style={styles.form}>
+                <Subtitulo subtitulo="Faça Login para Acessar o Sistema!"/>
+                <Input label="Email" placeholder='Insira seu email:'/>
+                <Input label="Senha" placeholder ={'Insira sua senha:'} secureTextEntry={true}/>
+                <LinkBtn title="Entrar" href="TabNav"/>
+
+                <View style={styles.links}>
+                    
+                    <Link href="/TelasIniciais/Cadastro" asChild>
+                        <TouchableOpacity>
+                            <Text style={styles.text}>Cadastre-se</Text>
+                        </TouchableOpacity>
+                    </Link>
+
+                    <Link href="/TelasIniciais/Rec-Senha" asChild>
+                        <TouchableOpacity>
+                            <Text style ={styles.text}>Esqueceu a senha?</Text>  
+                        </TouchableOpacity>
+                    </Link>
+                    
+                </View>         
+            </View>
         </View>
-
-        <View style={styles.container}>
-        <Text style={styles.texto} >Faça Login Para Acessar O Sistema!</Text>
-        <Input nome="Email:" placeholder="Insira o seu email:"/>
-        <Input nome="Senha:" placeholder="Insira a sua senha::"/>
-        <LinkBtn title="Login" href="drawer" />
-
-        <View style={styles.container2}>
-        <Link href="telasIniciais/cadastro" asChild>
-        <TouchableOpacity>
-        <Text style={styles.texto2}>Cadastre-se</Text>
-        </TouchableOpacity>
-        </Link>
-
-        <Link href="telasIniciais/recuperar" asChild>
-            <TouchableOpacity>
-            <Text style={styles.texto2}>Esqueceu a senha?</Text>
-            </TouchableOpacity>
-        </Link>
-
-        </View>
-        </View>
-        </>
     )
 }
 
 const styles = StyleSheet.create({
-    container:{
-        alignItems: 'center',
-        marginTop: 50,
-        gap: 20,
-        
+    form:{
+        backgroundColor: "#fff",
+        height: '100%',
+        marginTop: 45,
+        paddingHorizontal: 20,
+        width: "100%",
     },
-
-    texto:{
-
-        marginBottom: 30,
-        fontSize: 18,
-        fontWeight: '500',
-
-    },
-
-    container2:{
+    links: {
+        fontSize: 14,
         flexDirection: 'row',
-        gap: 110,
+        justifyContent: 'space-between',
+        marginTop: 10
     },
-
-    texto2:{
+    text:{
         color: '#011E83',
-        fontSize: 15,
     }
 })
+export default Login

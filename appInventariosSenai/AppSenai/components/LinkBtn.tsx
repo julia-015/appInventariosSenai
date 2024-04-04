@@ -1,6 +1,6 @@
-import { Link } from "expo-router"
-import { LinkProps } from "expo-router/build/link/Link" 
-import { Text,TouchableOpacity,StyleSheet,} from "react-native"
+import { Link } from "expo-router";
+import { LinkProps } from "next/link";
+import { Text, TouchableOpacity, StyleSheet} from "react-native";
 
 
 interface LinkBtnProps extends LinkProps{
@@ -13,14 +13,13 @@ export default function LinkBtn({title, ...props}: LinkBtnProps){
         button: {
             backgroundColor: "#000000",
             padding: 10,
-            borderRadius: 5,
-            width: 300
+            borderRadius: 5
         },
 
         title: {
             color: "#FFFFFF",
             textAlign: 'center',
-            fontSize: 16,
+            fontSize: 16
         }
     })
 

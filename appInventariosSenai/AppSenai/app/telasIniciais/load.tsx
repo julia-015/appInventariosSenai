@@ -1,39 +1,39 @@
+import { View, StyleSheet, Image, ActivityIndicator} from "react-native"
 
-import React from 'react';
-import { View, StyleSheet, ActivityIndicator, Image } from 'react-native';
-
-function Loading() {
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: 'red',
-    },
-    background: {
-      backgroundColor: 'red',
-      padding: 20,
-      borderRadius: 10,
-      alignItems: 'center',
-    },
-    logo: {
-      width: 200,
-      height: 51,
-      marginBottom: 20,
-    },
-    loader: {
-      marginTop: 20,
-    },
-  });
-  
-  return (
-    <View style={styles.container}>
-      <View style={styles.background}>
-        <Image source={require('@assets/Logo.png')} style={styles.logo} />
-        <ActivityIndicator size="large" color="#fff" style={styles.loader} />
-      </View>
-    </View>
-  );
+function Load(){
+    return(
+        <View style={styles.container}>
+            <Image style={styles.logo} source={require('@assets/LogoSenai.png')}/>
+            <View style={[styles.indicator, styles.horizontal]}>
+                <ActivityIndicator size={60} color="#fff" />
+            </View>
+        
+        </View>
+    )
 }
 
-export default Loading;
+const styles = StyleSheet.create({
+    container:{
+        width: '100%',
+        height:'100%',
+        backgroundColor: '#FF0000',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    logo:{
+        width: 181,
+        height: 39,
+    },
+    indicator: {
+        justifyContent: 'center',
+        marginTop: 60
+      },
+    horizontal: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        padding: 10,
+      },
+
+})
+
+export default Load
